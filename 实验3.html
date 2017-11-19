@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> 商品评价 </title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+	.one{
+	    width:800px;
+	    height:500px;
+	    margin-left:40px;
+	    margin-top:40px;
+	}
+	.title{
+		background-image: url(images/bg.jpg);
+	    width:585px;
+	    height:25px;
+	}
+	.comment1{
+		margin-left:500px;
+	}
+	#text{
+		width:585px;
+	    height:200px;
+	    text-align: center;
+	    font-size:20px;
+	}
+	</style>
+</head>
+<boby>
+	<div class="one">
+		<div class="title">
+            &nbsp;&nbsp;宝贝与描述相符（打分匿名）
+		</div>
+		<br/>
+		<div class="content">
+            <div class="star">
+                <img id="1" src="images/star0.png" onmouseover="starPic(this.id);" onmouseout="hide();" onclick="qd(this.id);"/>
+             	<img id="2" src="images/star0.png" onmouseover="starPic(this.id);" onmouseout="hide();" onclick="qd(this.id);"/>
+             	<img id="3" src="images/star0.png" onmouseover="starPic(this.id);" onmouseout="hide();"onclick="qd(this.id);"/>
+             	<img id="4" src="images/star0.png" onmouseover="starPic(this.id);" onmouseout="hide();" onclick="qd(this.id);"/>
+             	<img id="5" src="images/star0.png" onmouseover="starPic(this.id);" onmouseout="hide();" onclick="qd(this.id);"/>
+            </div>
+            <br/>
+            <div class="comment">
+            	<form action="" method="get">
+                <input type="text" id="text",value="">
+                </form>
+            </div>
+            <br/>
+            <div class="comment1">
+            	<form action="" method="get">
+                <select name="open">
+    	            <option>公开评论</option>
+    	            <option>匿名评论</option>
+                </select>
+                </form>
+            </div>
+		</div>
+	</div>
+	<script type="text/javascript">	
+	    var arr=['差','一般','满意','很满意','非常满意'];
+	    var imgs=document.getElementsByTagName("img");
+		function starPic(i){
+            for(var j=0;j<i;j++){
+　　　　        if(i<3)imgs[j].src="images/star1.png";
+			    else if(i>2)imgs[j].src="images/star2.png";
+            }
+            document.getElementById("text").value=arr[i-1];
+		}
+		var con=false;
+		function hide(){
+			if(con==true)return con;
+			else{ 
+				for(var k=0;k<5;k++){imgs[k].src="images/star0.png";document.getElementById("text").value=""}
+			}
+		}
+		function qd(i){
+			for(var j=0;j<i;j++){
+　　　　        if(i<3)imgs[j].src="images/star1.png";
+			    else if(i>2)imgs[j].src="images/star2.png";
+            }
+            con=true;
+		}
+	</script>
+</body>
+</html>
