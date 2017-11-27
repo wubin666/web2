@@ -5,17 +5,15 @@
   	<meta charset="utf-8" />
   	<style type="text/css">
   	#picScroll{
-  		width:950px;
+  		width:850px;
   		height:400px;
-  		margin-left: 220px;
+  		margin-left: 270px;
   		white-space:nowrap;
   		overflow:hidden;
   	}
   	#picScroll1{
-        float:left;
   	}
   	#picScroll2{
-        float:left;
   	}
   	</style>
 </head>
@@ -40,7 +38,7 @@
         var tab2=document.getElementById("picScroll2"); 
         tab2.innerHTML=tab1.innerHTML; 
         function changeToLeft(){ 
-            if(tab2.offsetWidth-tab.scrollLeft<=0) 
+            if(tab1.offsetWidth-tab.scrollLeft<0) 
                 tab.scrollLeft=0;
             else{ 
                 tab.scrollLeft++; 
