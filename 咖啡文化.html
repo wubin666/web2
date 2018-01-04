@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>咖啡文化</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css"
+    href="coffee.css">
+    <script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            var liNodes = document.getElementsByTagName("li");
+            for (var i=0; i<liNodes.length; i++)
+            {
+                liNodes[i].onmouseover = function(){
+                    this.className = "subMenuShow";
+                }
+                liNodes[i].onmouseout = function(){
+                    this.className = "";
+                }
+            }
+            var speed=100; 
+            var tab=document.getElementById("picScroll"); 
+            var tab1=document.getElementById("picScroll1"); 
+            var tab2=document.getElementById("picScroll2"); 
+            tab2.innerHTML=tab1.innerHTML; 
+            function changeToLeft(){ 
+                if(tab1.offsetWidth-tab.scrollLeft<0) 
+                    tab.scrollLeft=0;
+                else{ 
+                    tab.scrollLeft++; 
+                } 
+            } 
+            var MyMar=setInterval(changeToLeft,speed); 
+            tab.onmouseover=function(){clearInterval(MyMar)}; 
+            tab.onmouseout=function()
+            {MyMar=setInterval(changeToLeft,speed)}; 
+        }
+        $(document).ready(function(){
+            $('input[name="username"]').blur(function(){
+                $(this).nextAll().html("");
+                if($(this).val()==''){
+                    $(this).parent().append(
+                        '<br/><font color="#522A06">用户名不能为空</font>');
+                }
+                else{
+                    $(this).nextAll().html("");
+                }
+            });
+            $('input[name="password"]').blur(function(){
+                $(this).nextAll().html("");
+                if($(this).val()==''){
+                    $(this).parent().append(
+                        '<br/><font color="#522A06">密码不能为空</font>');
+                }
+                else{
+                    $(this).nextAll().html("");
+                }
+            });
+            $('input[name="repassword"]').blur(function(){
+                $(this).nextAll().html("");
+                if($(this).val()!=$('input[name="password"]').get(0).value)
+                {
+                    $(this).parent().append(
+                        '<br/><font color="#522A06">密码必须一致</font>');
+                }
+                else{
+                    $(this).nextAll().html("");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <div id="header">
+        <div id="logo">
+            <img class="logo" src="image/logo.png">
+        </div>
+        <div class="search">
+            <div id="search1">
+                <form>
+                    <input id="text" type="text"/>
+                </form>
+            </div>
+            <div id="search2">
+                <form>
+                    <input id="button" type="button" value="搜索"/>
+                </form>
+            </div>
+        </div>
+        <div id="wenzi">
+            <h2 class="wenzi">咖&nbsp;啡&nbsp;文&nbsp;化</h2>
+        </div>
+        <div id="english">
+            <h1 class="english">Welcome&nbsp;&nbsp;&nbsp;To&nbsp;&nbsp;&nbsp;The&nbsp;&nbsp;&nbsp;Coffee&nbsp;&nbsp;&nbsp;Culture&nbsp;&nbsp;&nbsp;Network</h1>
+        </div>
+        <div class="banner">
+            <ul id="nav">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">成分功效</a>
+                    <ul>
+                        <li><a href="#">咖啡因</a></li>
+                        <li><a href="#">单宁酸</a></li>
+                        <li><a href="#">脂肪</a></li>
+                        <li><a href="#">蛋白质</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">咖啡传说</a>
+                    <ul>
+                        <li><a href="#">牧羊人</a></li>
+                        <li><a href="#">雪克欧玛</a></li>
+                        <li><a href="#">德克里</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">咖啡礼节</a>
+                    <ul>
+                        <li><a href="#">如何拿咖啡杯</a></li>
+                        <li><a href="#">咖啡匙的使用</a></li>
+                        <li><a href="#">杯碟的使用</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">咖啡种类</a>
+                    <ul>
+                        <li><a href="#">摩卡</a></li>
+                        <li><a href="#">卡布其诺</a></li>
+                        <li><a href="#">拿铁</a></li>
+                        <li><a href="#">焦糖玛奇朵</a></li>
+                        <li><a href="#">美式咖啡</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">咖啡情愫</a>
+                    <ul>
+                        <li><a href="#">多明尼加</a></li>
+                        <li><a href="#">波多黎各</a></li>
+                        <li><a href="#">埃塞俄比亚</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">设备用法</a>
+                    <ul>
+                        <li><a href="#">虹吸壶</a></li>
+                        <li><a href="#">摩卡壶</a></li>
+                        <li><a href="#">比利时皇家壶</a></li>
+                        <li><a href="#">电动式咖啡机</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div id="content2">
+            <div class="first">
+                <div id="picScroll">
+                    <span id="picScroll1">
+                        <img id="pic1" src="image/coffee6.jpg" />
+                        <img src="image/coffee5.jpg" />
+                        <img src="image/kbqncoffee3.jpg" />
+                        <img src="image/kbqncoffee4.jpg" />
+                    </span>
+                    <span id="picScroll2"></span>
+                </div> 
+                <div class="first_1">
+                    <div class="yinong">
+                        <font size="5">&nbsp;意&nbsp;浓&nbsp;咖&nbsp;啡</font>
+                    </div>
+                    <div class="one">
+                        <input width="30px" height="30px" style="background-color:white" type="button" value="1"/>
+                    </div>
+                    <div class="two">
+                        <input width="30px" height="30px" style="background-color:#FFAF60" type="button" value="2"/>
+                    </div>
+                    <div class="three">
+                        <input width="30px" height="30px" style="background-color:white" type="button" value="3"/>
+                    </div>
+                    <div class="two">
+                        <input width="30px" height="30px" style="background-color:#FFAF60" type="button" value="4"/>
+                    </div>
+                </div>
+            </div>
+            <div class="second">
+                <div class="news">
+                    <div class="news1">
+                    <img src="image/topnews.png"></div>
+                    <div class="news2">
+                    <font size="5">最新资讯</font></div>
+                    <div class="news3">
+                    <font size="2"><a href="咖啡文化评论页.html">查看更多>></a></font></div>
+                </div>
+                <div class="news_bottom">
+                    <ul class="list1">
+                        <li><a class="yanse" href="咖啡文化评论页.html">全国咖啡师技能大赛华南赛区在东莞开赛</a></li>
+                        <li><a class="yanse" href="咖啡文化评论页.html">北上广深每月倒闭10%餐厅</a></li>
+                        <li><a class="yanse" href="咖啡文化评论页.html">
+                        现一二线城市咖啡厅倒闭潮流...</a></li>
+                        <li><a class="yanse" href="咖啡文化评论页.html">
+                        新西兰移民新政让咖啡馆老板叫苦不迭</a></li>
+                        <li><a class="yanse" href="咖啡文化评论页.html">第23届国际咖啡展会于17年...</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="third">
+                <div class="third_title">
+                    <div class="third_title1"><font size="5">&nbsp;咖&nbsp;啡&nbsp;文&nbsp;化</font></div>
+                    <div class="third_title2"><font size="2"><a href="咖啡文化评论页.html">查看更多>></a></font></div>
+                </div>
+                <div class="third_list">
+                    <div class="third_list_left">
+                        <ul class="list1">
+                            <li><a class="yanse" href="咖啡文化评论页.html">十二星座专属咖啡，哪种是你的最爱？</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">咖啡如何改变这个世界？</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">世界咖啡之旅（2）摩卡的国度。</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">法国人如何喝咖啡？</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">由咖啡引发的传说故事有哪些？</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">怎样喝咖啡对人的身体健康有利？</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">咖啡的来源</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">研磨咖啡的方法和技巧</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">咖啡烘焙机的温控技术</a></li>
+                        </ul>
+                    </div>
+                    <div class="third_list_right">
+                        <ul class="list2">
+                            <li><a class="yanse" href="咖啡文化评论页.html">[16-05-12]</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">[16-08-20]</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">[16-10-28]</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">[16-12-15]</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">[17-04-12]</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">[17-05-20]</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">[17-05-28]</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">[17-06-15]</a></li>
+                            <li><a class="yanse" href="咖啡文化评论页.html">[17-06-18]</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right">
+            <div class="zhuce">
+                <table id="zhuce">
+                    <tr>
+                        <td align="right">用户名：</td>
+                        <td><input class="name" type="text" name="username" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">密码：</td>
+                        <td><input class="password" type="password" name="password" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">确认密码：</td>
+                        <td><input class="password" type="password" name="repassword" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center" class="submit1">
+                        <br/>
+                        <input class="submit" type="submit" name="submit" value="登录"/>
+                        </td>
+                    </tr>
+                    </table>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="wangji" href="#">忘记密码？</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="wangji" href="#">注册</a>
+            </div>
+            <div class="right_center">
+                <div class="shangbiao">
+                    <font size="5">交流平台</font>
+                </div>
+                <div class="shangbiao2">
+                    <font size="2"><a href="咖啡文化评论页.html">查看更多>></a></font>
+                </div>
+            </div>
+            <div class="right_bottom">
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footer_list">
+            <a href="咖啡文化评论页.html">&nbsp;设为首页&nbsp;|</a>
+            <a href="咖啡文化评论页.html">&nbsp;电子邮箱&nbsp;|</a>
+            <a href="咖啡文化评论页.html">&nbsp;在线服务&nbsp;|</a>
+            <a href="咖啡文化评论页.html">&nbsp;网站地图&nbsp;|</a>
+            <a href="咖啡文化评论页.html">&nbsp;了解更多&nbsp;|</a>
+            <a href="咖啡文化评论页.html">&nbsp;加入收藏&nbsp;</a>
+        </div>
+        <div class="footer_list2">wubin@2013-2014 Coffeeculture.com,All Right Reserved</div>
+        <div class="footer_list3">冀ICP备0505050505号 冀公网安备110402440008</div>
+    </div>
+</div>
+</body>
+</html>
